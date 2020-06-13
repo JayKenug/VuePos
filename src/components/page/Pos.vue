@@ -12,7 +12,7 @@
                                 <el-table-column prop="count" label="量" width="50"></el-table-column>
                                 <el-table-column prop="price" label="金额" width="70"></el-table-column>
                                 <el-table-column label="操作" width="100" fixed="right">
-                                    <template scope="scope">
+                                    <template slot-scope="scope">
                                         <el-button type="text" size="small" @click="delSingleGoods(scope.row)">删除</el-button>
                                         <el-button type="text" size="small" @click="addOrderList(scope.row)">增加</el-button>
     
@@ -52,7 +52,6 @@
                     <div class="often-goods">
                         <div class="title">常用商品</div>
                         <div class="often-goods-list">
-    
                             <ul>
                                 <li v-for="goods in oftenGoods" @click="addOrderList(goods)">
                                     <span>{{goods.goodsName}}</span>
@@ -132,10 +131,10 @@ export default {
     },
     created() {
         //读取常用商品列表
-        axios.get('https://www.fastmock.site/mock/0bf6a5bae7eab8507e44b56191ddff36/vuepos/oftenGoods')
+        axios.get('https://www.easy-mock.com/mock/5e1abb7d7f109b0caa4d2e32/vue-pos/oftenGoods')
             .then(response => {
                 //console.log(response);
-                this.oftenGoods = response.data;
+                this.oftenGoods = response.data.oftenGoods;
             })
             .catch(error => {
                 console.log(error);
@@ -146,14 +145,14 @@ export default {
             .then(response => {
                 //console.log(response);
                 this.oftenGoods=response.data.oftenGoods;
-                this.type0Goods = response.data.data[0];
-                this.type1Goods = response.data.data[1];
-                this.type2Goods = response.data.data[2];
-                this.type3Goods = response.data.data[3];
+                this.type0Goods = response.data.data[1];
+                this.type1Goods = response.data.data[2];
+                this.type2Goods = response.data.data[3];
+                this.type3Goods = response.data.data[4];
             })
             .catch(error => {
                 console.log(error);
-                alert('网络错误，不能访问');
+                alert('404');
             })
     },
     data() {

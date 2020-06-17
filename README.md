@@ -1,6 +1,8 @@
-# awesomepos
+# PosDemo
 
-> A Vue.js project
+> 《vue.js实战》+jspang VueAwesomePos实战Pos系统的学习库
+>
+> 使用的技术栈为：Vue+Webpack+Element+Axios+vueRouter
 
 ## Build Setup
 
